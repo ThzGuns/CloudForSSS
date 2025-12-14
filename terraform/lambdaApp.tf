@@ -6,7 +6,7 @@ resource "aws_lambda_function" "app" {
   filename      = "../app/app.zip"
   environment {
     variables = {
-      BUCKET_NAME = aws_s3_bucket.files.bucket
+      BUCKET_NAME = aws_s3_bucket.uploads.bucket
       TABLE_NAME  = aws_dynamodb_table.files.name
     }
   }
