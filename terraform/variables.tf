@@ -2,7 +2,7 @@ variable "AwsRegion" {
     default = "eu-west-1" 
 }
 variable "BucketName" { 
-    default = "TerraBucketCloud" 
+    default = "terra-bucket-cloud" 
 }
 variable "TableName" { 
     default = "files-metadata"
