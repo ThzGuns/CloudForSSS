@@ -8,8 +8,4 @@ resource "aws_dynamodb_table" "files" {
     type = "S"
   }
 
-  attribute {
-    name = "description"
-    type = "S"
-  }
 }
