@@ -1,5 +1,5 @@
 resource "aws_instance" "web_app" {
-  ami           = "ami-0c02fb55956c7d316" # Ubuntu 22.04
+  ami           = "ami-09c54d172e7aa3d9a"
   instance_type = "t2.micro"
   key_name      = "your-keypair"
   security_groups = [aws_security_group.web_sg.name]
