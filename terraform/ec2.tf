@@ -1,7 +1,7 @@
 resource "aws_instance" "web_app" {
   ami           = "ami-09c54d172e7aa3d9a"
   instance_type = "t2.micro"
-  key_name      = "your-keypair"
+  key_name      = "KeyMaterial"
   security_groups = [aws_security_group.web_sg.name]
 
   user_data = <<-EOF
