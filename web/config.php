@@ -1,8 +1,7 @@
 <?php
-// Database instellingen
 $host = getenv('DB_HOST') ?: 'localhost';
 $db   = getenv('DB_NAME') ?: 'files_db';
-$user = getenv('DB_USER') ?: 'admin';
+$user = getenv('DB_USER') ?: 'appuser';
 $pass = getenv('DB_PASS') ?: 'SuperSecure123!';
 
 try {
