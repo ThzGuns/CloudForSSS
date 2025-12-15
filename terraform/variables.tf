@@ -7,3 +7,7 @@ variable "BucketName" {
 variable "TableName" { 
     default = "files-metadata"
 }
+variable "EC2KeyName" {
+  default = "KeyMaterial"
+}
+

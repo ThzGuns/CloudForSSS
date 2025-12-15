@@ -1,28 +1,27 @@
 data "aws_vpc" "default" {
   default = true
 }
-
 resource "aws_instance" "web_app" {
-  ami                    = "ami-09c54d172e7aa3d9a"
+  ami                    = "ami-049442a6cf8319180"
   instance_type           = "t3.micro"
   key_name                = "KeyMaterial"
-
   vpc_security_group_ids  = [aws_security_group.web_sg.id]
-  iam_instance_profile    = aws_iam_instance_profile.ec2_s3_profile.name
+  iam_instance_profile    = aws_iam_instance_profile.ec2_profile.name
 
-  user_data                   = file("user_data.sh")
-  user_data_replace_on_change = true
+  user_data = templatefile("${path.module}/user_data.sh", {
+    bucket_name = var.BucketName,
+    api_url     = aws_api_gateway_deployment.api_invoke.invoke_url
+  })
 
   tags = {
     Name = "AppServer"
   }
 }
 
-
 resource "aws_security_group" "web_sg" {
-  name        = "web-sg"
+  name   = "web-sg"
   description = "Allow HTTP"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id = data.aws_vpc.default.id
 
   ingress {
     from_port   = 80
