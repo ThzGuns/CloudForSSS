@@ -10,13 +10,17 @@ resource "aws_instance" "web_app" {
 
   user_data = templatefile("${path.module}/user_data.sh", {
     bucket_name = var.BucketName,
-    api_url     = aws_api_gateway_deployment.api_invoke.invoke_url
+    api_url = aws_api_gateway_stage.prod.invoke_url
+    depends_on = [aws_api_gateway_stage.prod]
+
   })
 
   tags = {
     Name = "AppServer"
   }
 }
+
+
 
 resource "aws_security_group" "web_sg" {
   name   = "web-sg"
