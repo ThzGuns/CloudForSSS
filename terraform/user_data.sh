@@ -1,12 +1,14 @@
 #!/bin/bash
-yum update -y
-yum install -y httpd php
-systemctl start httpd
-systemctl enable httpd
 
-# Download je sitebestanden van S3
-aws s3 cp s3://terra-bucket-cloud/web /var/www/html/ --recursive
+apt update -y
+apt install -y apache2 php libapache2-mod-php php-mysql awscli unzip
 
-# Optioneel: juiste permissies
-chown -R apache:apache /var/www/html/
+systemctl start apache2
+systemctl enable apache2
+
+aws s3 cp s3://${var.BucketName}/ /var/www/html/ --recursive
+
+chown -R www-data:www-data /var/www/html/
 chmod -R 755 /var/www/html/
+
+systemctl restart apache2
