@@ -12,6 +12,9 @@ sudo systemctl enable apache2
 sudo rm /var/www/html/index.html
 sudo aws s3 cp s3://terra-bucket-cloud/ /var/www/html/ --recursive
 
+sudo sed -i "s|\${api_url}|${api_url}|" /var/www/html/index.html
+
+
 sudo chown -R www-data:www-data /var/www/html/
 sudo chmod -R 755 /var/www/html/
 

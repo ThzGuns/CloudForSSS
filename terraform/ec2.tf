@@ -4,16 +4,16 @@ data "aws_vpc" "default" {
 resource "aws_instance" "web_app" {
   ami                    = "ami-049442a6cf8319180"
   instance_type           = "t3.micro"
-  key_name                = "KeyMaterial"
+  key_name                = var.EC2KeyName
   vpc_security_group_ids  = [aws_security_group.web_sg.id]
   iam_instance_profile    = aws_iam_instance_profile.ec2_profile.name
 
   user_data = templatefile("${path.module}/user_data.sh", {
-    bucket_name = var.BucketName,
-    api_url = aws_api_gateway_stage.prod.invoke_url
-    depends_on = [aws_api_gateway_stage.prod]
+  bucket_name = var.BucketName,
+  api_url     = aws_api_gateway_stage.prod.invoke_url
+})
 
-  })
+  depends_on = [aws_api_gateway_stage.prod]
 
   tags = {
     Name = "AppServer"
