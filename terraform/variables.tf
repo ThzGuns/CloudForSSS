@@ -15,12 +15,3 @@ variable "ami" {
   default     = "ami-049442a6cf8319180" 
 }
 
-variable "db_user" {
-  type    = string
-  default = "admin"
-}
-
-variable "db_pass" {
-  type    = string
-  default = "SuperSecure123!"
-}

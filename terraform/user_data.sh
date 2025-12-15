@@ -40,8 +40,8 @@ sudo chmod -R 755 /var/www/html/
 
 sudo mysql -u root <<EOF
 CREATE DATABASE files_db;
-DROP USER IF EXISTS 'admin'@'localhost';
-CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SuperSecure123!';
+DROP USER IF EXISTS 'appuser'@'localhost';
+CREATE USER 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SuperSecure123!';
 GRANT ALL PRIVILEGES ON files_db.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 
