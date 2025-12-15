@@ -13,4 +13,15 @@ provider "aws" {
   region = var.AwsRegion
 }
 
+# Default VPC
+data "aws_vpc" "default_vpc" {
+  default = true
+}
 
+# Subnets in default VPC
+data "aws_subnets" "default_subnets" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default_vpc.id]
+  }
+}
