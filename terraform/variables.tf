@@ -14,10 +14,4 @@ variable "ami" {
   type        = string
   default     = "ami-049442a6cf8319180" 
 }
-variable "AWSAccessKey" {
-  default = ""
-}
 
-variable "AWSSecretKey" {
-  default = ""
-}
