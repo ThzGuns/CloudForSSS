@@ -14,3 +14,6 @@ Delete the cloud:
 - go to your bucket go in the folder uploads and delete all the files you uploaded
 - then in cmd place: terraform destroy
 and then yes
+
+
+
