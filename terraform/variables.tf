@@ -15,3 +15,10 @@ variable "ami" {
   default     = "ami-049442a6cf8319180" 
 }
 
+variable "AWSAccessKey" {
+  default = ""  # leave empty in code
+}
+
+variable "AWSSecretKey" {
+  default = ""
+}
