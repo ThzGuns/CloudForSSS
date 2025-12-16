@@ -9,11 +9,13 @@ variables:
   TF_IN_AUTOMATION: "true"
 
 before_script:
+  - cd terraform
   - terraform --version
 
 deploy:
   stage: deploy
   script:
+    - cd terraform
     - terraform init
     - terraform validate
     - terraform apply -auto-approve
