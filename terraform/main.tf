@@ -11,7 +11,10 @@ terraform {
 
 provider "aws" {
   region     = var.AwsRegion
+  access_key = var.AWSAccessKey
+  secret_key = var.AWSSecretKey
 }
+
 
 
 # Default VPC
