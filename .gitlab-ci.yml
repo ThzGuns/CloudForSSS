@@ -3,14 +3,18 @@ image: hashicorp/terraform:1.6
 stages:
   - deploy
 
-deploy_production:
+variables:
+  TF_IN_AUTOMATION: "true"
+
+before_script:
+  - terraform --version
+
+deploy:
   stage: deploy
   script:
-    - cd terraform
-    - terraform --version
     - terraform init
     - terraform validate
-    - terraform plan
     - terraform apply -auto-approve
   only:
     - main
+
