@@ -8,6 +8,7 @@ stages:
 before_script:
   - cd terraform
   - terraform --version
+  
 
 variables:
   TF_IN_AUTOMATION: "true"
