@@ -5,16 +5,13 @@ image:
 stages:
   - deploy
 
+variables:
+  TF_IN_AUTOMATION: "true"
+
 before_script:
   - cd terraform
   - terraform --version
- 
- 
-variables:
-  TF_IN_AUTOMATION: "true"
-  AWSAccessKey: "$AWS_ACCESS_KEY_ID"
-  AWSSecretKey: "$AWS_SECRET_ACCESS_KEY"
-  AWS_DEFAULT_REGION: "$AWS_DEFAULT_REGION"
+  - env | grep AWS_
 
 deploy:
   stage: deploy
