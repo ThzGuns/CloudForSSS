@@ -1,4 +1,6 @@
-image: hashicorp/terraform:1.6
+image:
+  name: hashicorp/terraform:1.6
+  entrypoint: [""]
 
 stages:
   - deploy
@@ -17,4 +19,3 @@ deploy:
     - terraform apply -auto-approve
   only:
     - main
-
