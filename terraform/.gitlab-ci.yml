@@ -1,0 +1,16 @@
+image: hashicorp/terraform:1.6
+
+stages:
+  - deploy
+
+deploy_production:
+  stage: deploy
+  script:
+    - cd terraform
+    - terraform --version
+    - terraform init
+    - terraform validate
+    - terraform plan
+    - terraform apply -auto-approve
+  only:
+    - main
