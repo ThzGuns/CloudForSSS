@@ -3,10 +3,16 @@ Steps for cloud:
 - install terrafrom
 - install aws cli
 - create a user with acces to s3 and ec2
-- also create a key for your ec2 change that name to the name in variables.tf
-- in variables.tf change the bucket name do this also in your upload.php
-- in your directory where you place the unzip, go to terraform folder cmd do "terraform apply" and yes. this will let terraform run.
-- after it is completed it will give you de ip, put this in a browser and wait a few minutes and there will be your page.
+- create a folder and run: git init 
+- after that pull the git with: git remote add Cloud https://github.com/ThzGuns/CloudForSSS.git 
+- then run in the folder: git pull Cloud master
+- also create a pairkey for your ec2, then go to variables.tf and change where
+  this stands next to #<-- change key to your key name
+- in your cmd run: terraform init
+- then: terraform apply
+- after that it ask for yes
+- after it is completed it will give you de ip, put this in a browser and wait a few minutes
+  and there will be your page.
 
 
 
