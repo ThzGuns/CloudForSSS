@@ -19,4 +19,4 @@ deploy:
     - terraform validate
     - terraform apply -auto-approve
   only:
-    - main
+    - master
