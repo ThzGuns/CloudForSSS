@@ -11,7 +11,7 @@ Steps for cloud:
 - in your cmd run: terraform init
 - then: terraform apply
 - after that it ask for yes
-- after it is completed it will give you de ip, put this in a browser and wait a few minutes
+- after it is completed it will give you the ip, put this in a browser and wait a few minutes
   and there will be your page.
 
 
